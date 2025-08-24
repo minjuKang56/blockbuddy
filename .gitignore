@@ -1,0 +1,26 @@
+# Node / Web
+node_modules/
+.next/
+dist/
+build/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Large / Backend
+simba_backend/
+simba_pipeline/
+*.zip
+*.pt
+*.onnx
+*.ckpt
+*.tar
+*.gz
