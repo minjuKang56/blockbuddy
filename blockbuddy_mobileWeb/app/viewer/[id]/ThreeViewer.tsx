@@ -86,29 +86,30 @@ export default function ThreeViewer({
   const [isLoading, setIsLoading] = useState(true);
   const [currentMessage, setCurrentMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+    const [inputValue, setInputValue] = useState(''); // ✅ 입력값
 
   // 말풍선(기존 유지)
-  useEffect(() => {
-    if (!isTalkMode) { setShowMessage(false); return; }
-    const messages: Record<number, string[]> = {
-      1: ['으르렁! 안녕 친구야!', '나는 정글의 王!', '모험 떠나볼까?', '같이 놀자!'],
-      2: ['파오~~ 안녕!', '긴 코 신기하지?', '물을 푱!', '기억력 짱!'],
-      3: ['하이!', '목 길지?', '하늘이 가까워!', '나뭇잎 맛있어!'],
-    };
-    const arr = messages[record.id] || ['안녕!'];
-    let i = 0, stop = false;
-    const loop = () => {
-      if (stop) return;
-      setCurrentMessage(arr[i]);
-      setShowMessage(true);
-      setTimeout(() => {
-        setShowMessage(false);
-        setTimeout(() => { i = (i + 1) % arr.length; loop(); }, 1000);
-      }, 3000);
-    };
-    loop();
-    return () => { stop = true; };
-  }, [isTalkMode, record.id]);
+  // useEffect(() => {
+  //   if (!isTalkMode) { setShowMessage(false); return; }
+  //   const messages: Record<number, string[]> = {
+  //     1: ['으르렁! 안녕 친구야!', '나는 정글의 王!', '모험 떠나볼까?', '같이 놀자!'],
+  //     2: ['파오~~ 안녕!', '긴 코 신기하지?', '물을 푱!', '기억력 짱!'],
+  //     3: ['하이!', '목 길지?', '하늘이 가까워!', '나뭇잎 맛있어!'],
+  //   };
+  //   const arr = messages[record.id] || ['안녕!'];
+  //   let i = 0, stop = false;
+  //   const loop = () => {
+  //     if (stop) return;
+  //     setCurrentMessage(arr[i]);
+  //     setShowMessage(true);
+  //     setTimeout(() => {
+  //       setShowMessage(false);
+  //       setTimeout(() => { i = (i + 1) % arr.length; loop(); }, 1000);
+  //     }, 3000);
+  //   };
+  //   loop();
+  //   return () => { stop = true; };
+  // }, [isTalkMode, record.id]);
 
   // 초기화 (효과 모두 OFF)
   useEffect(() => {
@@ -174,8 +175,6 @@ export default function ThreeViewer({
     // 4) 앰비언트(전체 레벨)
     const amb = new THREE.AmbientLight(0xffffff, 10);
     scene.add(amb);
-
-
 
     const onResize = () => {
       if (!containerRef.current || !cameraRef.current || !rendererRef.current) return;

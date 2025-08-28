@@ -285,7 +285,7 @@ const startCamera = async () => {
               autoPlay
               playsInline
               muted
-              className="w-full h-full object-cover"
+              className="w-[390px] h-[780px] object-contain mx-auto rounded-xl shadow-lg"
             />
             <canvas ref={canvasRef} className="hidden" />
           </>

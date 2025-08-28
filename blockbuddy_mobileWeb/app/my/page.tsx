@@ -145,7 +145,6 @@ export default function MyPage() {
           </div>
         </div>
       </div>
-
       <BottomNavigation currentPage="my" />
     </div>
   );

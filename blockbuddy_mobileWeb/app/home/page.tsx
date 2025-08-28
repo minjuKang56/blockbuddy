@@ -27,31 +27,35 @@ export default function HomePage() {
     }
 
     // 더미 블록 기록 데이터
-    setBlockRecords([
-      {
+      setBlockRecords([
+
+        {
         id: 1,
         title: '사자 친구',
         date: '2025-08-20',
         thumbnail: '/images/lion_thumnail.png',
-        description: '용감한 사자 친구를 레고로 만들었어요!'
+        description: '용감한 사자 친구를 레고로 만들었어요! 같이 정글 탐험을 떠나볼까요?'
       },
-      {
-        id: 2,
-        title: '트위티',
-        date: '2025-07-20',
-        thumbnail: '/images/twitty_thumnail.png',
-        description: '귀여운 발을 가진 트위티!'
-      },
-      {
-        id: 3,
-        title: '야옹야옹',
-        date: '2025-01-20',
-        thumbnail: '/images/cat_thumnail.png',
-        description: '예쁜 눈을 가진 고양이에요!'
-      }
-    ]);
-  }, []);
 
+        {
+          id: 2,
+          title: '트위티',
+          date: '2025-07-20',
+          thumbnail: '/images/twitty_thumnail.png',
+          description: '귀여운 발을 가진 트위티!'
+        },
+        {
+          id: 3,
+          title: '야옹야옹',
+          date: '2025-01-20',
+          thumbnail: '/images/cat_thumnail.png',
+          description: '예쁜 눈을 가진 고양이에요!'
+        }
+      ]);
+
+  // 트위티가 첫 슬라이드(0번)로 보이도록 유지
+  setCurrentSlide(0);
+}, []);
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % blockRecords.length);
   };

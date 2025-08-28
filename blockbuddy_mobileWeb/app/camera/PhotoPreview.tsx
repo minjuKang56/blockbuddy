@@ -179,7 +179,7 @@ export default function PhotoPreview({ photos, currentStep, onRetake, onNext, on
             <img 
               src={photos[currentStep]} 
               alt={`${stepLabels[currentStep]} 사진`}
-              className="w-full h-full object-cover"
+              className="w-[390px] h-[780px] object-contain mx-auto rounded-xl shadow-lg"
             />
             
             {/* 상단 헤더 */}
